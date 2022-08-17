@@ -1,182 +1,152 @@
 footer {
-  width: 70%;
-  margin: 40px auto 80px;
-  background: $color1;
-  @include grid-2col;
+	background: $color1;
+	width: 80%;
+	min-height: 640px;
+	margin: 40px auto 70px;
+	@include grid-2col;
 
-  .form {
-    box-shadow: inset -1px 0 0 $color5;
-    form {
-      margin: 70px 50px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      .form-grid {
-        width: 100%;
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 4fr;
-        align-items: center;
-        label {
-          color: $color4;
-          letter-spacing: 2px;
-          font-size: 0.9rem;
-        }
-        input[type="text"],
-        textarea {
-          width: 100%;
-          height: 80%;
-          text-align: left;
-          border-radius: 4px;
-          border: 1px solid $color5;
-          padding: 10px;
-          transition: 0.2s;
-          background: transparent;
-        }
-        input[type="text"]:focus,
-        textarea:focus {
-          border: 1px solid $color3;
-        }
-        textarea {
-          resize: none;
-          height: 250px;
-        }
-        .text {
-          text-align: left;
-        }
-      }
-    }
-    .button {
-      border: 2px solid $color4;
-      color: $color4;
-      font-size: 1rem;
-      padding: 17px 30px;
-      margin-top: 50px;
-      &:hover {
-        background: $color4;
-        color: $color1;
-      }
-    }
-  }
-  .contact {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    .address,
-    .phone,
-    .email,
-    .social {
-      height: 200px;
-      display: grid;
-      grid-template-columns: 30% 70%;
-      align-items: center;
-      justify-items: start;
-      .address-left,
-      .phone-left,
-      .email-left,
-      .social-left {
-        padding-left: 35px;
-        color: $color4;
-        font-size: 1.3rem;
-        letter-spacing: 1px;
-      }
-      .address-right,
-      .phone-right,
-      .email-right {
-        color: $color2;
-        line-height: 30px;
-        p {
-          text-align: start;
-        }
-      }
-      .social-right {
-        ul {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          li {
-            font-size: 1.2rem;
-            margin-right: 15px;
-            a {
-              color: $color3;
-              text-decoration: none;
-              border: 1px solid $color2;
-              border-radius: 50%;
-              width: 50px;
-              height: 50px;
-              @include flex-center;
-            }
-          }
-        }
-      }
-    }
+	@media screen and (max-width: 1150px) {
+		width: 90%;
+	}
+	@media screen and (max-width: 900px) {
+		display: block;
+	}
 
-    //  .address,
-    .phone,
-    .email,
-    .social {
-      box-shadow: inset 0 1px 0 $color5;
-    }
-  }
+	form {
+		display: grid;
+		gap: 18px;
+		padding: 60px 50px;
+		grid-template-rows: 18px 45px 18px 45px 18px 200px 1fr;
+		box-shadow: inset -1px 0 0 $color5;
 
-  // /******************* RESPONSIVE *******************/
+		@media screen and (max-width: 900px) {
+			.form form {
+				padding: 40px 0 0;
+			}
+		}
 
-  @media screen and (max-width: 1150px) {
-    width: 90%;
-  }
+		label {
+			display: flex;
+			align-items: flex-end;
+			font-size: 0.7rem;
+			letter-spacing: 2px;
+			color: $color4;
+		}
+		input[type="text"],
+		textarea {
+			background: none;
+			border: 1px solid $color5;
+			border-radius: 4px;
+			resize: none;
+			text-align: left;
+		}
+		.submit-container {
+			display: flex;
+			align-items: flex-end;
 
-  @media screen and (max-width: 900px) {
-    .form form {
-      padding: 40px 0 0;
-    }
-    display: block;
-    .contact {
-      .address,
-      .phone,
-      .email,
-      .social {
-        height: 150px;
-      }
-      .address {
-        box-shadow: inset 0 1px 0 $color5;
-      }
-    }
-  }
+			.button {
+				color: $color4;
+				border: 2px solid $color4;
+				&:hover {
+					background: $color4;
+					color: $color1;
+				}
+			}
+		}
+	}
+	.contact {
+		display: grid;
+		grid-template-rows: repeat(4, 1fr);
+		.address,
+		.phone,
+		.email,
+		.social {
+			display: grid;
+			grid-template-columns: 30% 70%;
+			align-items: center;
+			justify-items: start;
 
-  @media screen and (max-width: 560px) {
-    .contact {
-      .address,
-      .phone,
-      .email,
-      .social {
-        height: 100px;
-        .address-left,
-        .phone-left,
-        .email-left,
-        .social-left {
-          font-size: 1rem;
-          padding-left: 20px;
-        }
-        .address-right,
-        .phone-right,
-        .email-right {
-          line-height: 20px;
-          p {
-            font-size: 0.8rem;
-          }
-        }
-        .social-right {
-          width: 100%;
-          ul {
-            justify-content: center;
-            li {
-              font-size: 0.8rem;
-              a {
-                width: 35px;
-                height: 35px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+			@media screen and (max-width: 900px) {
+				height: 100px;
+			}
+
+			.address-left,
+			.phone-left,
+			.email-left,
+			.social-left {
+				padding-left: 35px;
+				color: $color4;
+				font-size: 1.3rem;
+				letter-spacing: 1px;
+
+				@media screen and (max-width: 560px) {
+					font-size: 1rem;
+					padding-left: 30px;
+				}
+			}
+
+			.address-right,
+			.phone-right,
+			.email-right {
+				color: $color2;
+				line-height: 30px;
+				p {
+					text-align: start;
+				}
+
+				@media screen and (max-width: 560px) {
+					line-height: 20px;
+					p {
+						font-size: 0.8rem;
+					}
+				}
+			}
+
+			.social-right {
+				ul {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					li {
+						font-size: 1.2rem;
+						margin-right: 15px;
+						a {
+							color: $color3;
+							text-decoration: none;
+							border: 1px solid $color2;
+							border-radius: 50%;
+							width: 50px;
+							height: 50px;
+							@include flex-center;
+						}
+					}
+				}
+
+				@media screen and (max-width: 560px) {
+					width: 100%;
+					ul {
+						justify-content: center;
+						li {
+							font-size: 0.8rem;
+							a {
+								width: 35px;
+								height: 35px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.phone,
+		.email,
+		.social {
+			box-shadow: inset 0 1px 0 $color5;
+		}
+		@media screen and (max-width: 900px) {
+			.address {
+				box-shadow: inset 0 1px 0 $color5;
+			}
+		}
+	}
 }
