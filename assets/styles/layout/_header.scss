@@ -1,0 +1,135 @@
+header {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 80px;
+  grid-template-columns: 70%;
+  justify-content: center;
+
+  .header-container {
+    color: $color1;
+    @include flex-center;
+    flex-direction: column;
+    h1 {
+      margin: 50px 0 0;
+      font-size: 5.3rem;
+      letter-spacing: 5px;
+    }
+    p {
+      margin: 50px auto 80px;
+      font-size: 1.3rem;
+      font-style: italic;
+    }
+    a > i {
+      color: $color1;
+      font-size: 1.6rem;
+      border: 2px solid $color1;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      @include flex-center;
+    }
+  }
+
+  nav {
+    background: rgba(255, 255, 255, 0.281);
+    display: grid;
+    grid-template-columns: 75% 25%;
+    align-items: center;
+
+    .nav-container {
+      ul {
+        display: grid;
+        grid-template-columns: 200px 160px 240px;
+        justify-content: start;
+        align-items: center;
+      }
+      li {
+        color: $color1;
+        padding: 31px 10px;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+      li:hover {
+        background: #f3f3f3;
+        color: $color3;
+      }
+      li:first-child {
+        background: #f3f3f3;
+        color: $color3;
+      }
+    }
+    .nav-network {
+      ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        li {
+          font-size: 1.4rem;
+          a {
+            color: $color1;
+            text-decoration: none;
+
+            &:hover {
+              font-size: 1.8rem;
+              transition: 0.2s;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // /******************* RESPONSIVE *******************/
+
+  @media screen and (max-width: 1150px) {
+    grid-template-columns: 90%;
+    .header-container {
+      h1 {
+        font-size: 4rem;
+        letter-spacing: 3px;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .header-container {
+      width: 100%;
+      h1 {
+        font-size: 3rem;
+        letter-spacing: 2px;
+      }
+    }
+    nav {
+      grid-template-columns: 1fr;
+      width: 100%;
+      .nav-container {
+        ul {
+          grid-template-columns: 33% 33% 34%;
+          align-items: stretch;
+          li {
+            font-size: 0.9rem;
+          }
+        }
+      }
+      .nav-network {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    .header-container {
+      h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+      }
+    }
+    nav .nav-container ul li {
+      font-size: 0.6rem;
+    }
+  }
+}
